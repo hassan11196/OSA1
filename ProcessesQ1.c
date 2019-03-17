@@ -85,7 +85,8 @@ int main(){
 			printf("\n\tProcess E - pid : %d - ppid : %d",getpid(),getppid());
 			system("date");
 			printf("\nMac Address : \n");
-			system("ifconfig -a | grep -i \"HWaddr\"");
+			//system("ifconfig -a | grep -i \"HWaddr\"");
+			execl("/bin/bash","/bin/bash","-c","ifconfig -a | grep -i \"HWaddr\"",(void*)0);
 			return 0;
 		}
 		return 0;
