@@ -23,11 +23,13 @@ int main(){
 			if(pid[3] > 0){
 				// Process A
 				printf("\n\tProcess A - pid : %d - ppid : %d\n",getpid(),getppid());
+				system("date");
 				return 0;
 			}
 			else if(pid[3] == 0){
 				// Process D
 				printf("\n\tProcess D - pid : %d - ppid : %d\n",getpid(),getppid());
+				system("date");
 				execl("/bin/bash","sh","shell_name_inp.sh",NULL);
 				return 0;
 			}
@@ -41,13 +43,16 @@ int main(){
 
 			if(pid[4] > 0){
 				// Process C
-				//sleep(5); // C goes to sleep for 5 seconds
+				printf("\n\tProcess C goes to sleep\n");
+				sleep(5); // C goes to sleep for 5 seconds
 				printf("\n\tProcess C - pid : %d - ppid : %d\n",getpid(),getppid());
+				system("date");
 				return 0;
 			}
 			else if(pid[4] == 0){
 				// Process F
 				printf("\n\tProcess F - pid : %d - ppid : %d\n",getpid(),getppid());
+				system("date");
 				char buf[100], buf2[100], buf3[100];
 				sprintf(buf,"ps -p %d -oppid",(getppid()));
 				
@@ -68,6 +73,7 @@ int main(){
 			// Process B
 			char num1[10],num2[10];
 			printf("\n\tProcess B - pid : %d - ppid : %d",getpid(),getppid());
+			system("date");
 			printf("\nEnter Two Numbers : ");
 			scanf("%s %s",&num1[0],&num2[0]);
 			printf("\nPassing %c and %c as arguments to Shell Scipt.\n",num1[0],num2[0]);
@@ -77,6 +83,7 @@ int main(){
 		else if (pid[1] == 0){
 			// Process E
 			printf("\n\tProcess E - pid : %d - ppid : %d",getpid(),getppid());
+			system("date");
 			printf("\nMac Address : \n");
 			system("ifconfig -a | grep -i \"HWaddr\"");
 			return 0;
