@@ -14,7 +14,7 @@ int main(){
     printf("Enter Number of Processes : ");
     scanf("%d",&num);
     
-    int *btimes = (int*)malloc(num*sizeof(int));
+    float *btimes = (float*)malloc(num*sizeof(int));
     int *wtimes = (int*)malloc(num*sizeof(int));
     int *tatimes = (int*)malloc(num*sizeof(int));
     int *priors = (int*)malloc(num*sizeof(int));
@@ -22,7 +22,7 @@ int main(){
     printf("Enter Burst Time and Priority for respective processes. (Burst time in seconds) \n");
     for(int i = 0; i < num; i++){
         printf("\nBurst time for Process %d : ", i + 1);
-        scanf("%d",&btimes[i]);
+        scanf("%f",&btimes[i]);
         printf("Priorty for Process %d : ", i + 1);
         scanf("%d",&priors[i]);
         procs[i] = i + 1;
@@ -56,7 +56,7 @@ int main(){
     for(int i = 0; i < num; i++){
         tatimes[i] = btimes[i] +wtimes[i];
         total += tatimes[i];
-        printf("\nP%d\t%d\t\t%d\t\t%d",procs[i],btimes[i],wtimes[i],tatimes[i]);
+        printf("\nP%d\t%f\t\t%d\t\t%d",procs[i],btimes[i],wtimes[i],tatimes[i]);
     }
     avg_turnt = (float)total/num;
     printf("\n\nAverage Waiting Time=%f",avg_waitt);
